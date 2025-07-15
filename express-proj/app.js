@@ -1,21 +1,21 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const path = require("path");
 
+const app = express();
 
-app.get('/',(req, res)=>{
-  console.log('response sended')
-  res.send("homepage")
-})
+// setup static and middleware
+app.use(express.static("./navbar-app"));
 
-app.listen(3001,()=>{
-  console.log("port is listening on 3001  ")
-})
+// app.get("/", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
+// adding to static assets
+// SSR
+// });
 
+// app.all("*", (req, res) => {
+//   res.status(404).send("resource not found");
+// });
 
-// app.get
-// app.post
-// app.put 
-// app.delete
-// app.use
-// app.all
-// app.listen
+app.listen(5000, () => {
+  console.log("server is listening on 5000");
+});
